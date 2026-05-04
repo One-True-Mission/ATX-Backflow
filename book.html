@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule a Test | ATX BackFlow</title>
+  <meta name="description" content="Schedule your annual backflow test, repair, or rebuild with ATX BackFlow. Serving Austin, Round Rock, Georgetown, Cedar Park, and Hutto.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="assets/logo.jpg">
+</head>
+<body data-page="book">
+
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">
+        <img src="assets/logo.jpg" alt="ATX BackFlow logo" class="nav__brand-mark">
+        <strong>ATX <em>BackFlow</em></strong>
+      </a>
+
+      <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__menu">
+        <li><a href="index.html" class="nav__link" data-nav="home">Home</a></li>
+        <li><a href="services.html" class="nav__link" data-nav="services">Services</a></li>
+        <li><a href="about.html" class="nav__link" data-nav="about">About</a></li>
+        <li><a href="book.html" class="nav__link" data-nav="book">Schedule</a></li>
+        <li><a href="book.html" class="nav__cta">Schedule a Test</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero hero--page">
+    <div class="hero__rail"></div>
+    <div class="hero__bg" style="background-image: url('assets/hero-book.jpg');"></div>
+    <div class="hero__inner">
+      <div class="hero__content">
+        <span class="eyebrow">Schedule</span>
+        <h1>Book Your Backflow Test.</h1>
+        <p class="hero__lede">Fill out the form and we'll confirm a window within one business day. Same-week scheduling for most of greater Austin.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section class="section">
+    <div class="container reveal">
+      <div class="form-shell">
+        <div class="form-shell__form">
+          <span class="eyebrow">Tell Us About the Job</span>
+          <h2 style="color: var(--color-text); margin-bottom: 28px;">Schedule a Test.</h2>
+
+          <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT_HERE" method="POST">
+            <input type="hidden" name="_next" value="thank-you.html">
+            <input type="hidden" name="_subject" value="ATX BackFlow Schedule Request">
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" required>
+              </div>
+            </div>
+
+            <div class="form-row form-row--single">
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="address">Property Address</label>
+                <input type="text" id="address" name="address" placeholder="Street address" required>
+              </div>
+              <div class="form-field">
+                <label for="city">City</label>
+                <select id="city" name="city" required>
+                  <option value="">Select a city</option>
+                  <option value="Austin">Austin</option>
+                  <option value="Round Rock">Round Rock</option>
+                  <option value="Georgetown">Georgetown</option>
+                  <option value="Cedar Park">Cedar Park</option>
+                  <option value="Hutto">Hutto</option>
+                  <option value="Pflugerville">Pflugerville</option>
+                  <option value="Leander">Leander</option>
+                  <option value="Other">Other (note in details)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="property-type">Property Type</label>
+                <select id="property-type" name="property_type" required>
+                  <option value="">Select one</option>
+                  <option value="Residential">Residential</option>
+                  <option value="Commercial">Commercial</option>
+                  <option value="Multi-family">Multi-family</option>
+                  <option value="Industrial">Industrial</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="service">Service Needed</label>
+                <select id="service" name="service" required>
+                  <option value="">Select one</option>
+                  <option value="Annual Test">Annual Test</option>
+                  <option value="Repair">Repair</option>
+                  <option value="Rebuild">Rebuild</option>
+                  <option value="Fire System">Fire System Coordination</option>
+                  <option value="Not sure">Not Sure (we'll figure it out)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row form-row--single">
+              <div class="form-field">
+                <label for="details">Anything Else We Should Know?</label>
+                <textarea id="details" name="details" placeholder="Device size, location on the property, urgency, anything that helps us prepare."></textarea>
+              </div>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn--primary btn--block">Request a Schedule</button>
+            </div>
+
+            <p style="margin-top: 18px; font-size: 0.88rem; color: var(--color-text-muted); text-align: center;">We respond within one business day. Most weeks, much sooner.</p>
+          </form>
+        </div>
+
+        <aside class="form-shell__sidebar">
+          <div class="form-shell__contact-block">
+            <h3>Call Us</h3>
+            <p><a href="tel:5127457715" style="font-size: 1.4rem; font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em;">(512) 745-7715</a></p>
+          </div>
+
+          <div class="form-shell__contact-block">
+            <h3>Email</h3>
+            <p><a href="mailto:atxbackflow@gmail.com">atxbackflow@gmail.com</a></p>
+          </div>
+
+          <div class="form-shell__contact-block">
+            <h3>Mailing</h3>
+            <p>1801 Red Bud Ln, B293<br>Round Rock, TX 78664</p>
+          </div>
+
+          <div class="form-shell__contact-block">
+            <h3>Service Area</h3>
+            <p>Austin, Round Rock, Georgetown, Cedar Park, Hutto, Pflugerville, Leander, and surrounding areas.</p>
+          </div>
+
+          <div class="form-shell__contact-block">
+            <h3>Hours</h3>
+            <p>Monday&ndash;Friday<br>8:00 AM &ndash; 5:00 PM</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">
+          <img src="assets/logo.jpg" alt="ATX BackFlow logo">
+          <span class="footer__brand-text">ATX <em>BackFlow</em></span>
+        </div>
+        <p class="footer__tagline">Certified backflow testing, repair, and rebuilds across the greater Austin area. Residential and commercial. Reports filed.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <ul class="footer__list">
+          <li><a href="tel:5127457715">(512) 745-7715</a></li>
+          <li><a href="mailto:atxbackflow@gmail.com">atxbackflow@gmail.com</a></li>
+          <li><span>1801 Red Bud Ln, B293</span></li>
+          <li><span>Round Rock, TX 78664</span></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul class="footer__list">
+          <li><a href="services.html">Annual Testing</a></li>
+          <li><a href="services.html">Repair</a></li>
+          <li><a href="services.html">Rebuild</a></li>
+          <li><a href="services.html">Fire System Coordination</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Navigate</h4>
+        <ul class="footer__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="book.html">Schedule</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__credits">
+        &copy; <span data-year>2026</span> ATX BackFlow. Site by <a href="https://otm-designs.com" target="_blank" rel="noopener">OTM Web Design</a>.
+      </div>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/atxbackflow/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.facebook.com/ATXbackflow" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.2c0-.9.3-1.5 1.5-1.5h1.5V5c-.3 0-1.1-.1-2.1-.1-2.1 0-3.5 1.3-3.5 3.6V11H8v3h2.9v7h2.6z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
