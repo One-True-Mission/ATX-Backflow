@@ -78,7 +78,7 @@ body::before {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: brightness(0.32) saturate(0.85);
+  filter: brightness(0.55) saturate(0.9);
   will-change: transform;
 }
 
@@ -88,8 +88,8 @@ body::after {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(29, 138, 203, 0.08) 0%, transparent 60%),
-    linear-gradient(180deg, rgba(7, 9, 12, 0.45) 0%, rgba(7, 9, 12, 0.7) 100%);
+    radial-gradient(ellipse at 50% 0%, rgba(29, 138, 203, 0.05) 0%, transparent 55%),
+    linear-gradient(180deg, rgba(7, 9, 12, 0.18) 0%, rgba(7, 9, 12, 0.32) 100%);
   pointer-events: none;
 }
 
@@ -168,7 +168,7 @@ p:last-child { margin-bottom: 0; }
   margin: 0 auto;
 }
 
-/* Card pattern: section's container becomes a rounded card on top of body bg */
+/* Section card pattern: white card sits on body bg. Use .section-card on the section. */
 .section-card .container {
   background: var(--card-fill-light);
   color: var(--color-text);
@@ -176,6 +176,7 @@ p:last-child { margin-bottom: 0; }
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-lift);
   backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 .section-card.section-card--dark .container {
@@ -189,9 +190,6 @@ p:last-child { margin-bottom: 0; }
 .section-card.section-card--dark h3,
 .section-card.section-card--dark h4 { color: var(--color-text-on-dark); }
 
-.section-card .container.card-light h1,
-.section-card .container.card-light h2,
-.section-card .container.card-light h3 { color: var(--color-text); }
 
 /* ============================================
    NAV
@@ -328,6 +326,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .hero--page { min-height: 56vh; padding: 90px 0 60px; }
+.hero--page::after { height: 60px; }
 
 .hero__bg {
   position: absolute;
@@ -343,8 +342,21 @@ p:last-child { margin-bottom: 0; }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(7, 9, 12, 0.4) 0%, rgba(7, 9, 12, 0.95) 100%),
-    linear-gradient(90deg, rgba(7, 9, 12, 0.85) 0%, rgba(7, 9, 12, 0.2) 60%, transparent 100%);
+    linear-gradient(180deg, rgba(7, 9, 12, 0.15) 0%, rgba(7, 9, 12, 0.5) 60%, rgba(7, 9, 12, 0.95) 100%),
+    linear-gradient(90deg, rgba(7, 9, 12, 0.65) 0%, rgba(7, 9, 12, 0.1) 55%, transparent 100%);
+}
+
+/* Soft fade-out at the very bottom of the hero so it melts into whatever sits below */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 80px;
+  background: linear-gradient(180deg, transparent 0%, rgba(7, 9, 12, 0.85) 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .hero__inner {
@@ -440,11 +452,18 @@ p:last-child { margin-bottom: 0; }
 
 .marquee {
   background: var(--color-black);
-  border-top: 1px solid var(--color-line);
-  border-bottom: 1px solid var(--color-line);
+  border-top: 2px solid var(--color-accent-bright);
+  border-bottom: 2px solid var(--color-accent-bright);
   padding: 18px 0;
   overflow: hidden;
   position: relative;
+  z-index: 3;
+  margin-top: -1px;
+  box-shadow:
+    0 -8px 24px rgba(0, 0, 0, 0.5),
+    0 -1px 0 rgba(56, 168, 232, 0.4),
+    0 1px 0 rgba(56, 168, 232, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .marquee__track {
@@ -554,6 +573,34 @@ p:last-child { margin-bottom: 0; }
   border-color: var(--color-accent);
 }
 
+/* Dark variant of service card, used on white cards as a contrasting sub-card */
+.service-card--dark {
+  background: linear-gradient(160deg, #1c2330 0%, #11161e 100%);
+  border: 1px solid rgba(56, 168, 232, 0.18);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card--dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent-bright), transparent);
+  opacity: 0.6;
+}
+
+.service-card--dark.service-card--dark h3 { color: var(--color-text-on-dark); }
+.service-card--dark.service-card--dark p { color: var(--color-text-on-dark-muted); }
+
+.service-card--dark:hover {
+  border-color: var(--color-accent-bright);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(56, 168, 232, 0.25);
+}
+
 .service-card__icon {
   width: 52px;
   height: 52px;
@@ -623,21 +670,36 @@ p:last-child { margin-bottom: 0; }
 }
 
 .price-card {
-  background: var(--color-black);
+  background:
+    linear-gradient(160deg, #1c2330 0%, #11161e 100%);
   color: var(--color-text-on-dark);
   border-radius: var(--radius-sub);
   padding: 40px 32px;
   text-align: center;
-  border: 1px solid var(--color-line);
+  border: 1px solid rgba(56, 168, 232, 0.18);
   transition: transform var(--t-base), border-color var(--t-base), box-shadow var(--t-base);
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.price-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent-bright), transparent);
+  opacity: 0.6;
 }
 
 .price-card:hover {
   transform: translateY(-4px);
-  border-color: var(--color-accent);
-  box-shadow: var(--shadow-lift);
+  border-color: var(--color-accent-bright);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(56, 168, 232, 0.25);
 }
 
 .price-card__label {
