@@ -22,7 +22,7 @@
         <strong>ATX <em>BackFlow</em></strong>
       </a>
 
-      <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-panel">
         <span></span><span></span><span></span>
       </button>
 
@@ -30,14 +30,21 @@
         <li><a href="index.html" class="nav__link" data-nav="home">Home</a></li>
         <li><a href="services.html" class="nav__link" data-nav="services">Services</a></li>
         <li><a href="about.html" class="nav__link" data-nav="about">About</a></li>
-        <li><a href="book.html" class="nav__cta">Schedule a Test</a></li>
+        <li><a href="book.html" class="nav__cta">Contact</a></li>
       </ul>
     </div>
   </header>
 
+  <div class="nav-backdrop" aria-hidden="true"></div>
+  <nav class="nav-panel" id="nav-panel" aria-label="Mobile navigation">
+    <a href="index.html" class="nav-panel__link" data-nav="home">Home</a>
+    <a href="services.html" class="nav-panel__link" data-nav="services">Services</a>
+    <a href="about.html" class="nav-panel__link" data-nav="about">About</a>
+    <a href="book.html" class="nav-panel__cta">Contact</a>
+  </nav>
+
   <!-- HERO -->
   <section class="hero hero--page">
-    <div class="hero__rail"></div>
     <div class="hero__bg" style="background-image: url('assets/hero-book.jpg');"></div>
     <div class="hero__inner">
       <div class="hero__content">
@@ -48,13 +55,19 @@
     </div>
   </section>
 
+  <!-- BRAND RAIL -->
+  <div class="brand-rail" aria-hidden="true">
+    <div class="brand-rail__line-primary"></div>
+    <div class="brand-rail__line-secondary"></div>
+  </div>
+
   <!-- BOOKING FORM -->
   <section class="section">
     <div class="container reveal">
       <div class="form-shell">
         <div class="form-shell__form">
           <span class="eyebrow">Tell Us About the Job</span>
-          <h2 style="color: var(--color-text); margin-bottom: 28px;">Schedule a Test.</h2>
+          <h2>Schedule a Test.</h2>
 
           <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT_HERE" method="POST">
             <input type="hidden" name="_next" value="thank-you.html">
@@ -134,7 +147,7 @@
               <button type="submit" class="btn btn--primary btn--block">Request a Schedule</button>
             </div>
 
-            <p style="margin-top: 18px; font-size: 0.88rem; color: var(--color-text-muted); text-align: center;">We respond within one business day. Most weeks, much sooner.</p>
+            <p class="muted" style="margin-top: 18px; font-size: 0.88rem; text-align: center;">We respond within one business day. Most weeks, much sooner.</p>
           </form>
         </div>
 
@@ -205,7 +218,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="book.html">Schedule</a></li>
+          <li><a href="book.html">Contact</a></li>
         </ul>
       </div>
     </div>

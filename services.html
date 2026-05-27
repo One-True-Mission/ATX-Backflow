@@ -22,7 +22,7 @@
         <strong>ATX <em>BackFlow</em></strong>
       </a>
 
-      <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-panel">
         <span></span><span></span><span></span>
       </button>
 
@@ -30,14 +30,21 @@
         <li><a href="index.html" class="nav__link" data-nav="home">Home</a></li>
         <li><a href="services.html" class="nav__link" data-nav="services">Services</a></li>
         <li><a href="about.html" class="nav__link" data-nav="about">About</a></li>
-        <li><a href="book.html" class="nav__cta">Schedule a Test</a></li>
+        <li><a href="book.html" class="nav__cta">Contact</a></li>
       </ul>
     </div>
   </header>
 
+  <div class="nav-backdrop" aria-hidden="true"></div>
+  <nav class="nav-panel" id="nav-panel" aria-label="Mobile navigation">
+    <a href="index.html" class="nav-panel__link" data-nav="home">Home</a>
+    <a href="services.html" class="nav-panel__link" data-nav="services">Services</a>
+    <a href="about.html" class="nav-panel__link" data-nav="about">About</a>
+    <a href="book.html" class="nav-panel__cta">Contact</a>
+  </nav>
+
   <!-- HERO -->
   <section class="hero hero--page">
-    <div class="hero__rail"></div>
     <div class="hero__bg" style="background-image: url('assets/hero-services.jpg');"></div>
     <div class="hero__inner">
       <div class="hero__content">
@@ -48,13 +55,19 @@
     </div>
   </section>
 
+  <!-- BRAND RAIL (no marquee on inner pages) -->
+  <div class="brand-rail" aria-hidden="true">
+    <div class="brand-rail__line-primary"></div>
+    <div class="brand-rail__line-secondary"></div>
+  </div>
+
   <!-- CORE SERVICES -->
   <section class="section section-card">
-    <div class="container card-light reveal">
+    <div class="container reveal">
       <div style="max-width: 720px;">
         <span class="eyebrow">Core Services</span>
         <h2>Three Things, Done Right.</h2>
-        <p style="color: var(--color-text-muted); font-size: 1.05rem;">Backflow prevention is the only thing we focus on, and that focus is the reason we're good at it.</p>
+        <p class="muted" style="font-size: 1.05rem;">Backflow prevention is the only thing we focus on, and that focus is the reason we're good at it.</p>
       </div>
 
       <div class="services-grid">
@@ -98,9 +111,9 @@
     </div>
   </section>
 
-  <!-- COMMERCIAL FEATURE -->
+  <!-- RESIDENTIAL FEATURE -->
   <section class="section section-card">
-    <div class="container card-light reveal">
+    <div class="container reveal">
       <div class="feature feature--reverse">
         <div class="feature__media">
           <img src="assets/service-residential.jpg" alt="Technician performing residential backflow test with gauges">
@@ -110,18 +123,18 @@
           <h2>Annual Test, In and Out.</h2>
           <p>Most residential tests take less than thirty minutes. We arrive in the agreed window, perform the test on the assembly serving your irrigation or pool line, document the result, and submit the report to your water authority. If you're unsure where the assembly is or whether you need a test, send us a photo and we'll tell you.</p>
           <p>If the assembly fails, we walk you through the result, explain what's wrong, and quote the repair before doing any work. No surprise charges, no upsells.</p>
-          <a href="book.html" class="btn btn--dark" style="margin-top: 8px;">Schedule a Residential Test</a>
+          <a href="book.html" class="btn btn--outline" style="margin-top: 8px;">Schedule a Residential Test</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FIRE SYSTEM PARTNERSHIP -->
+  <!-- FIRE SYSTEM COORDINATION -->
   <section class="section section-card">
-    <div class="container card-light reveal">
+    <div class="container reveal">
       <div class="feature">
         <div class="feature__media">
-          <img src="assets/hero-services.jpg" alt="Commercial mechanical room with fire system risers">
+          <img src="assets/service-commercial.jpg" alt="Commercial mechanical room with fire system risers">
         </div>
         <div>
           <span class="eyebrow">Fire System Coordination</span>
@@ -136,11 +149,11 @@
 
   <!-- PRICING -->
   <section class="section section-card">
-    <div class="container card-light reveal">
+    <div class="container reveal">
       <div style="max-width: 720px;">
         <span class="eyebrow">Pricing</span>
         <h2>Three Tiers. No Quote Games.</h2>
-        <p style="color: var(--color-text-muted); font-size: 1.05rem;">Most properties fit cleanly into one of the tiers below. Local filing fees may apply, depending on your water authority. For larger properties or unusual configurations, call us with the device size and we'll quote it on the spot.</p>
+        <p class="muted" style="font-size: 1.05rem;">Most properties fit cleanly into one of the tiers below. Local filing fees may apply, depending on your water authority. For larger properties or unusual configurations, call us with the device size and we'll quote it on the spot.</p>
       </div>
 
       <div class="pricing-grid">
@@ -170,30 +183,30 @@
       </div>
 
       <div style="margin-top: 36px; text-align: center;">
-        <a href="book.html" class="btn btn--dark">Schedule a Test</a>
+        <a href="book.html" class="btn btn--outline">Schedule a Test</a>
       </div>
     </div>
   </section>
 
   <!-- SERVICE AREA -->
   <section class="section section-card">
-    <div class="container card-light reveal">
+    <div class="container reveal">
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
         <div>
           <span class="eyebrow">Service Area</span>
           <h2>Greater Austin Coverage.</h2>
-          <p style="color: var(--color-text-muted);">We service residential and commercial properties across Austin and the surrounding cities. If you're outside the list and need a backflow test, give us a call. We can usually make it work.</p>
+          <p class="muted">We service residential and commercial properties across Austin and the surrounding cities. If you're outside the list and need a backflow test, give us a call. We can usually make it work.</p>
         </div>
         <div>
           <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-            <li style="padding: 14px 18px; background: var(--color-surface); border-radius: 8px; border-left: 3px solid var(--color-accent); font-weight: 600; color: var(--color-text);">Austin</li>
-            <li style="padding: 14px 18px; background: var(--color-surface); border-radius: 8px; border-left: 3px solid var(--color-accent); font-weight: 600; color: var(--color-text);">Round Rock</li>
-            <li style="padding: 14px 18px; background: var(--color-surface); border-radius: 8px; border-left: 3px solid var(--color-accent); font-weight: 600; color: var(--color-text);">Georgetown</li>
-            <li style="padding: 14px 18px; background: var(--color-surface); border-radius: 8px; border-left: 3px solid var(--color-accent); font-weight: 600; color: var(--color-text);">Cedar Park</li>
-            <li style="padding: 14px 18px; background: var(--color-surface); border-radius: 8px; border-left: 3px solid var(--color-accent); font-weight: 600; color: var(--color-text);">Hutto</li>
-            <li style="padding: 14px 18px; background: var(--color-surface); border-radius: 8px; border-left: 3px solid var(--color-accent); font-weight: 600; color: var(--color-text);">Pflugerville</li>
-            <li style="padding: 14px 18px; background: var(--color-surface); border-radius: 8px; border-left: 3px solid var(--color-accent); font-weight: 600; color: var(--color-text);">Leander</li>
-            <li style="padding: 14px 18px; background: var(--color-surface); border-radius: 8px; border-left: 3px solid var(--color-accent); font-weight: 600; color: var(--color-text);">Surrounding Areas</li>
+            <li class="service-area-tile">Austin</li>
+            <li class="service-area-tile">Round Rock</li>
+            <li class="service-area-tile">Georgetown</li>
+            <li class="service-area-tile">Cedar Park</li>
+            <li class="service-area-tile">Hutto</li>
+            <li class="service-area-tile">Pflugerville</li>
+            <li class="service-area-tile">Leander</li>
+            <li class="service-area-tile">Surrounding Areas</li>
           </ul>
         </div>
       </div>
@@ -201,12 +214,31 @@
   </section>
 
   <!-- CTA STRIP -->
-  <section class="cta-strip">
-    <div class="cta-strip__inner">
-      <span class="eyebrow">Ready to Schedule?</span>
-      <h2>Book Your Test Today.</h2>
-      <p>Same-week scheduling for most of greater Austin. Quick form, fast response.</p>
-      <a href="book.html" class="btn btn--primary">Schedule a Test</a>
+  <section class="section section-card section-card--deep">
+    <div class="container reveal">
+      <div class="cta-strip__inner">
+        <span class="eyebrow eyebrow--centered">Ready to Schedule?</span>
+        <h2>Book Your Test Today.</h2>
+        <p class="cta-strip__lede">Same-week scheduling for most of greater Austin. Quick form, fast response.</p>
+        <div class="cta-strip__actions">
+          <a href="tel:5127457715" class="btn btn--primary">Call (512) 745-7715</a>
+          <a href="book.html" class="btn btn--ghost">Schedule Online</a>
+        </div>
+        <div class="cta-trust">
+          <div class="cta-trust__item">
+            <div class="cta-trust__value">$119</div>
+            <div class="cta-trust__label">Residential Test</div>
+          </div>
+          <div class="cta-trust__item">
+            <div class="cta-trust__value">1 Day</div>
+            <div class="cta-trust__label">Response Time</div>
+          </div>
+          <div class="cta-trust__item">
+            <div class="cta-trust__value">5+ Cities</div>
+            <div class="cta-trust__label">Across Greater Austin</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -247,7 +279,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="book.html">Schedule</a></li>
+          <li><a href="book.html">Contact</a></li>
         </ul>
       </div>
     </div>
