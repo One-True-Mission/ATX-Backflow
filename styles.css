@@ -235,34 +235,43 @@ p:last-child { margin-bottom: 0; }
 .section-card--deep .container .muted { color: var(--color-text-on-dark-muted); }
 
 /* ============================================
-   BRAND TRANSITION RAIL (inner pages only)
-   Sits below hero, above first content frame.
-   Pages WITH a marquee skip this (marquee handles the transition).
+   HERO-TO-CONTENT TRANSITION (inner pages)
+   Accent line flush on the hero bottom edge + a small
+   center tab on the first content frame. No floating rail.
+   Pages WITH a marquee skip this (marquee handles it).
    ============================================ */
 
-.brand-rail {
-  padding: 18px 0 0;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 8px;
-  background: transparent;
-}
+/* Accent line sits flush along the bottom edge of inner-page heros */
+.hero--page { border-bottom: 3px solid var(--accent); }
 
-/* When a brand rail is immediately followed by a content section,
-   pull that section up so the rail reads as a tight hero-to-content handoff */
-.brand-rail + .section { padding-top: 40px; }
-
-.brand-rail__line-primary {
+/* Center accent tab poking up from the first content frame's top edge */
+.frame-tab > .container::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
   height: 3px;
-  background: var(--accent);
-  box-shadow: 0 0 14px rgba(56, 168, 232, 0.4);
+  background: var(--accent-bright);
+  box-shadow: 0 0 14px rgba(56, 168, 232, 0.5);
+  border-radius: 0 0 3px 3px;
 }
 
-.brand-rail__line-secondary {
-  height: 1px;
-  background: var(--accent-deep);
-  opacity: 0.7;
+/* Tab variant for the booking form-shell (not a .container, has its own top border) */
+.frame-tab .form-shell { position: relative; }
+.frame-tab .form-shell::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 3px;
+  background: var(--accent-bright);
+  box-shadow: 0 0 14px rgba(56, 168, 232, 0.5);
+  border-radius: 0 0 3px 3px;
+  z-index: 2;
 }
 
 /* ============================================
