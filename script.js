@@ -1,57 +1,79 @@
 /* ATX BackFlow - script.js
-   Handles: hamburger nav, active page state, scroll reveal, year stamp
+   Modules (each in its own IIFE):
+   - Premium hamburger menu (slide-in panel from right)
+   - Active nav state
+   - Scroll reveal
+   - Year stamp
+   - Smooth scroll
 */
 
+/* ============================================
+   PREMIUM HAMBURGER MENU
+   ============================================ */
 (function () {
   'use strict';
-
   document.addEventListener('DOMContentLoaded', function () {
-    initActiveNav();
-    initHamburger();
-    initScrollReveal();
-    initYearStamp();
-    initSmoothScroll();
-  });
+    var btn = document.querySelector('.nav__hamburger');
+    var panel = document.querySelector('.nav-panel');
+    var backdrop = document.querySelector('.nav-backdrop');
+    if (!btn || !panel) return;
 
-  /* Active nav state based on body[data-page] */
-  function initActiveNav() {
+    function open() {
+      document.body.classList.add('nav-open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+    function close() {
+      document.body.classList.remove('nav-open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    function toggle() {
+      if (document.body.classList.contains('nav-open')) close();
+      else open();
+    }
+
+    btn.addEventListener('click', toggle);
+
+    if (backdrop) backdrop.addEventListener('click', close);
+
+    /* Close on any link click inside the panel */
+    panel.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', close);
+    });
+
+    /* ESC to close */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && document.body.classList.contains('nav-open')) close();
+    });
+
+    /* Close on resize past desktop breakpoint */
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900 && document.body.classList.contains('nav-open')) close();
+    });
+  });
+})();
+
+/* ============================================
+   ACTIVE NAV STATE
+   ============================================ */
+(function () {
+  'use strict';
+  document.addEventListener('DOMContentLoaded', function () {
     var page = document.body.getAttribute('data-page');
     if (!page) return;
-    var links = document.querySelectorAll('[data-nav]');
-    links.forEach(function (link) {
+    document.querySelectorAll('[data-nav]').forEach(function (link) {
       if (link.getAttribute('data-nav') === page) {
         link.classList.add('is-active');
       }
     });
-  }
+  });
+})();
 
-  /* Mobile hamburger toggle */
-  function initHamburger() {
-    var nav = document.querySelector('.nav');
-    var btn = document.querySelector('.nav__hamburger');
-    if (!nav || !btn) return;
-
-    btn.addEventListener('click', function () {
-      nav.classList.toggle('is-open');
-      var expanded = nav.classList.contains('is-open');
-      btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-    });
-
-    /* Close menu when a link is clicked (mobile UX) */
-    document.querySelectorAll('.nav__link, .nav__cta').forEach(function (link) {
-      link.addEventListener('click', function () {
-        if (window.innerWidth <= 900) nav.classList.remove('is-open');
-      });
-    });
-
-    /* Close on resize up to desktop */
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 900) nav.classList.remove('is-open');
-    });
-  }
-
-  /* Scroll-triggered reveal for elements with .reveal */
-  function initScrollReveal() {
+/* ============================================
+   SCROLL REVEAL
+   ============================================ */
+(function () {
+  'use strict';
+  document.addEventListener('DOMContentLoaded', function () {
     var els = document.querySelectorAll('.reveal');
     if (!els.length) return;
 
@@ -70,18 +92,28 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
     els.forEach(function (el) { io.observe(el); });
-  }
+  });
+})();
 
-  /* Auto-update copyright year in footer */
-  function initYearStamp() {
+/* ============================================
+   YEAR STAMP
+   ============================================ */
+(function () {
+  'use strict';
+  document.addEventListener('DOMContentLoaded', function () {
     var year = new Date().getFullYear();
     document.querySelectorAll('[data-year]').forEach(function (el) {
       el.textContent = year;
     });
-  }
+  });
+})();
 
-  /* Smooth-scroll for in-page anchors */
-  function initSmoothScroll() {
+/* ============================================
+   SMOOTH SCROLL FOR IN-PAGE ANCHORS
+   ============================================ */
+(function () {
+  'use strict';
+  document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('a[href^="#"]').forEach(function (link) {
       link.addEventListener('click', function (e) {
         var href = link.getAttribute('href');
@@ -92,5 +124,5 @@
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
-  }
+  });
 })();
