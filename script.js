@@ -126,3 +126,105 @@
     });
   });
 })();
+
+/* ============================================
+   LIGHTBOX (any .gallery-grid--lightbox on the page)
+   Click any .gallery-item to open the full image overlay.
+   Works across multiple grids on a single page (all items
+   are pooled into one navigable sequence).
+   Arrow keys + on-screen prev/next navigate. ESC closes.
+   ============================================ */
+(function () {
+  'use strict';
+  document.addEventListener('DOMContentLoaded', function () {
+    var grids = document.querySelectorAll('.gallery-grid--lightbox');
+    if (!grids.length) return;
+
+    /* Pool all items from all grids into a single sequence */
+    var items = [];
+    var sources = [];
+    grids.forEach(function (grid) {
+      grid.querySelectorAll('.gallery-item').forEach(function (item) {
+        var img = item.querySelector('img');
+        if (!img) return;
+        items.push(item);
+        sources.push({ src: img.getAttribute('src'), alt: img.getAttribute('alt') || '' });
+        item.setAttribute('role', 'button');
+        item.setAttribute('tabindex', '0');
+        item.dataset.lightboxIndex = items.length - 1;
+      });
+    });
+
+    if (!items.length) return;
+
+    /* Build the lightbox overlay once and reuse */
+    var overlay = document.createElement('div');
+    overlay.className = 'lightbox';
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.innerHTML =
+      '<button class="lightbox__close" aria-label="Close">&times;</button>' +
+      '<button class="lightbox__prev" aria-label="Previous photo">&#8249;</button>' +
+      '<button class="lightbox__next" aria-label="Next photo">&#8250;</button>' +
+      '<figure class="lightbox__figure">' +
+      '<img class="lightbox__img" alt="">' +
+      '<figcaption class="lightbox__counter"></figcaption>' +
+      '</figure>';
+    document.body.appendChild(overlay);
+
+    var imgEl = overlay.querySelector('.lightbox__img');
+    var counterEl = overlay.querySelector('.lightbox__counter');
+    var closeBtn = overlay.querySelector('.lightbox__close');
+    var prevBtn = overlay.querySelector('.lightbox__prev');
+    var nextBtn = overlay.querySelector('.lightbox__next');
+
+    var index = 0;
+
+    function show(i) {
+      index = (i + sources.length) % sources.length;
+      imgEl.setAttribute('src', sources[index].src);
+      imgEl.setAttribute('alt', sources[index].alt);
+      counterEl.textContent = (index + 1) + ' / ' + sources.length;
+    }
+
+    function open(i) {
+      show(i);
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lightbox-open');
+    }
+    function close() {
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lightbox-open');
+    }
+
+    items.forEach(function (item) {
+      item.addEventListener('click', function () {
+        open(parseInt(item.dataset.lightboxIndex, 10));
+      });
+      item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          open(parseInt(item.dataset.lightboxIndex, 10));
+        }
+      });
+    });
+
+    closeBtn.addEventListener('click', close);
+    prevBtn.addEventListener('click', function () { show(index - 1); });
+    nextBtn.addEventListener('click', function () { show(index + 1); });
+
+    /* Click outside the image to close */
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) close();
+    });
+
+    /* Keyboard nav */
+    document.addEventListener('keydown', function (e) {
+      if (!overlay.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') show(index - 1);
+      else if (e.key === 'ArrowRight') show(index + 1);
+    });
+  });
+})();

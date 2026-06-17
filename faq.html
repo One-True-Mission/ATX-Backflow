@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ | ATX BackFlow</title>
+  <meta name="description" content="Common questions about backflow, backflow prevention, annual testing requirements, and how backflow assemblies work. Educational resources for homeowners and commercial property owners in the greater Austin area.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="assets/logo.jpg">
+</head>
+<body data-page="faq">
+
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">
+        <img src="assets/logo.jpg" alt="ATX BackFlow logo" class="nav__brand-mark">
+      </a>
+
+      <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-panel">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__menu">
+        <li><a href="index.html" class="nav__link" data-nav="home">Home</a></li>
+        <li><a href="services.html" class="nav__link" data-nav="services">Services</a></li>
+        <li><a href="about.html" class="nav__link" data-nav="about">About</a></li>
+        <li><a href="our-work.html" class="nav__link" data-nav="our-work">Our Work</a></li>
+        <li><a href="faq.html" class="nav__link" data-nav="faq">FAQ</a></li>
+        <li><a href="book.html" class="nav__cta">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="nav-backdrop" aria-hidden="true"></div>
+  <nav class="nav-panel" id="nav-panel" aria-label="Mobile navigation">
+    <a href="index.html" class="nav-panel__link" data-nav="home">Home</a>
+    <a href="services.html" class="nav-panel__link" data-nav="services">Services</a>
+    <a href="about.html" class="nav-panel__link" data-nav="about">About</a>
+    <a href="our-work.html" class="nav-panel__link" data-nav="our-work">Our Work</a>
+    <a href="faq.html" class="nav-panel__link" data-nav="faq">FAQ</a>
+    <a href="book.html" class="nav-panel__cta">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero hero--page">
+    <div class="hero__bg" style="background-image: url('assets/hero-faq.jpg');"></div>
+    <div class="hero__inner">
+      <div class="hero__content">
+        <span class="eyebrow">FAQ &amp; Education</span>
+        <h1>Backflow, Explained.</h1>
+        <p class="hero__lede">Everything you need to know about backflow, why your assembly exists, what testing actually involves, and how to keep your device protecting your water year-round.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS BACKFLOW -->
+  <section class="section section-card frame-tab">
+    <div class="container reveal">
+      <div class="inner-panel">
+        <span class="eyebrow eyebrow--centered">The Basics</span>
+        <h2 style="text-align: center;">What Is Backflow?</h2>
+        <p>Every time you turn on a faucet, you expect clean water to come out. Normally water flows in one direction: from the public supply into your home or building. When pressure changes happen, that flow can reverse, pushing water from your property back into the drinking water supply. That reverse flow is called backflow.</p>
+        <p>Without protection, contaminants can enter the drinking water system. Fertilizers, pesticides, chemicals, standing irrigation water, industrial fluids, soil and debris, and more. A backflow preventer acts like a one-way safety gate. It allows water to move into your property but prevents anything from moving backward into the clean water supply.</p>
+        <p>Backflow protection isn't just about your house. It protects the entire public water system that serves you and your neighbors.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW BACKFLOW HAPPENS -->
+  <section class="section section-card">
+    <div class="container reveal">
+      <div style="max-width: 780px;">
+        <span class="eyebrow">How It Happens</span>
+        <h2>Two Ways Water Goes The Wrong Direction.</h2>
+        <p class="muted" style="font-size: 1.05rem;">Backflow happens through one of two mechanisms. Both are caused by a pressure change in the system.</p>
+      </div>
+
+      <div class="services-grid services-grid--two">
+        <article class="service-card">
+          <div class="service-card__icon">01</div>
+          <h3>Backsiphonage</h3>
+          <p>Happens when water pressure on the supply side suddenly drops, creating a vacuum that pulls water backward.</p>
+          <ul class="service-card__list">
+            <li>Water main breaks</li>
+            <li>Fire hydrant use nearby</li>
+            <li>High water demand</li>
+            <li>Pump failures</li>
+          </ul>
+          <p style="margin-top: 8px; font-style: italic; color: var(--color-warm-text-muted); font-size: 0.95rem;">Example: a garden hose left in a bucket of pesticide. A nearby water main breaks and the pressure drop pulls the chemical solution back toward the line.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-card__icon">02</div>
+          <h3>Backpressure</h3>
+          <p>Happens when pressure on your side of the system becomes greater than the supply pressure, pushing water backward.</p>
+          <ul class="service-card__list">
+            <li>Booster pumps</li>
+            <li>Boilers</li>
+            <li>Elevated tanks</li>
+            <li>Thermal expansion</li>
+            <li>High-rise buildings</li>
+          </ul>
+          <p style="margin-top: 8px; font-style: italic; color: var(--color-warm-text-muted); font-size: 0.95rem;">Example: a boiler running at higher pressure than the city supply forces water back toward the main.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CROSS CONNECTIONS -->
+  <section class="section section-card">
+    <div class="container reveal">
+      <div class="feature">
+        <div class="feature__media">
+          <img src="assets/faq-cross-connections.jpg" alt="Backflow assembly installation detail">
+        </div>
+        <div>
+          <span class="eyebrow">Cross Connections</span>
+          <h2>Where Contamination Risks Live.</h2>
+          <p>A cross-connection is any actual or potential connection between drinking water and a non-potable source. They are everywhere, and most people have at least one on their property.</p>
+          <p><strong>Common residential examples:</strong> lawn irrigation systems, garden hoses left in pools, chemical sprayers, water softeners, boilers, swimming pools, hose-end fertilizer systems.</p>
+          <p><strong>Common commercial examples:</strong> chemical processing equipment, cooling towers, fire sprinkler systems, restaurants, medical equipment, manufacturing systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPES OF PREVENTERS -->
+  <section class="section section-card">
+    <div class="container reveal">
+      <div style="max-width: 780px;">
+        <span class="eyebrow">Equipment</span>
+        <h2>Common Types Of Backflow Preventers.</h2>
+        <p class="muted" style="font-size: 1.05rem;">Different installations call for different levels of protection. Here's what's typically used where.</p>
+      </div>
+
+      <div class="services-grid services-grid--quad">
+        <article class="service-card">
+          <div class="service-card__icon">AG</div>
+          <h3>Air Gap</h3>
+          <p>A physical separation between the water supply and possible contamination. The highest level of protection because there are no moving parts to fail.</p>
+          <ul class="service-card__list">
+            <li>Faucet above a sink rim</li>
+            <li>Dishwasher drain separation</li>
+            <li>Highest reliability</li>
+            <li>Not practical in many installs</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-card__icon">PVB</div>
+          <h3>Pressure Vacuum Breaker</h3>
+          <p>Commonly used for irrigation systems. Protects against backsiphonage but not against backpressure.</p>
+          <ul class="service-card__list">
+            <li>Most residential irrigation</li>
+            <li>Backsiphonage protection only</li>
+            <li>Must be installed above grade</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-card__icon">DC</div>
+          <h3>Double Check Assembly</h3>
+          <p>Two independent check valves in series. Used for fire sprinkler systems and lower-hazard commercial applications.</p>
+          <ul class="service-card__list">
+            <li>Fire sprinkler systems</li>
+            <li>Low hazard commercial</li>
+            <li>Backpressure and backsiphonage</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-card__icon">RP</div>
+          <h3>Reduced Pressure Zone</h3>
+          <p>The highest level of mechanical protection. Used for high-hazard installations, chemical systems, and most commercial properties.</p>
+          <ul class="service-card__list">
+            <li>High-hazard commercial</li>
+            <li>Chemical and industrial</li>
+            <li>Strongest mechanical protection</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ ACCORDION -->
+  <section class="section section-card">
+    <div class="container reveal">
+      <div style="max-width: 780px;">
+        <span class="eyebrow">Frequently Asked</span>
+        <h2>Common Questions, Answered.</h2>
+        <p class="muted" style="font-size: 1.05rem;">Click any question to expand the answer.</p>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-item__q">Why does my backflow device need testing?</summary>
+          <div class="faq-item__a">
+            <p>Backflow assemblies are mechanical devices containing springs, rubber seals, internal check valves, and relief valves. These parts wear out over time and can fail without visible signs from the outside. Annual testing confirms the device is still doing its job.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">How often should my backflow assembly be tested?</summary>
+          <div class="faq-item__a">
+            <p>Most water authorities require annual testing. All commercial assemblies are tested annually. About half of residential assemblies are tested annually, depending on the hazard classification of the connection.</p>
+            <p>Additional testing is typically required after repairs, device replacement, relocation, or a failed inspection.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">What actually happens during a backflow test?</summary>
+          <div class="faq-item__a">
+            <p>A typical test takes less than thirty minutes for most residential assemblies. We perform a visual inspection, isolate the assembly, connect calibrated test equipment, test the check valves, test the relief valve if applicable, document the results, and submit the report to your local water authority.</p>
+            <p>If the device passes, you get a copy of the report and we're done until next year. If it fails, we walk you through what's wrong and quote any repair before doing the work.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">What causes a backflow device to fail?</summary>
+          <div class="faq-item__a">
+            <p>Common causes include debris in the check valves, damaged rubber seals, worn springs, freeze damage, corrosion, age, and improper installation. Most failures can be repaired without replacing the whole assembly.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">What are warning signs that something might be wrong?</summary>
+          <div class="faq-item__a">
+            <p>Watch for water discharging continuously from the relief valve, visible leaks, reduced water pressure, chattering or vibrating sounds, standing water around the assembly, visible corrosion, or frozen piping. Any of these is a reason to schedule a test.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Can I repair the device myself?</summary>
+          <div class="faq-item__a">
+            <p>Minor issues can look simple, but certified testing and repair are recommended because the device protects public health. Most jurisdictions also require repairs to be performed and certified by a licensed backflow tester before the device is considered back in service.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Why do I have a backflow preventer in the first place?</summary>
+          <div class="faq-item__a">
+            <p>Backflow preventers protect your family, your property, the public drinking water system, and every neighbor connected to that same system. Most properties with irrigation, pools, boilers, or any cross-connection are required to have one.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- MYTHS -->
+  <section class="section section-card">
+    <div class="container reveal">
+      <div style="max-width: 780px;">
+        <span class="eyebrow">Common Myths</span>
+        <h2>Three Things People Get Wrong.</h2>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card value-card">
+          <div class="service-card__icon">M1</div>
+          <h3>"I've never had a problem so I don't need testing."</h3>
+          <p>Backflow devices can fail internally while looking completely normal from the outside. The only way to know it's working is to test it.</p>
+        </article>
+
+        <article class="service-card value-card">
+          <div class="service-card__icon">M2</div>
+          <h3>"My sprinkler system water is clean."</h3>
+          <p>Irrigation systems commonly contain soil, fertilizer, bacteria, animal waste, and standing water. They're one of the most common contamination sources we see.</p>
+        </article>
+
+        <article class="service-card value-card">
+          <div class="service-card__icon">M3</div>
+          <h3>"A garden hose can't contaminate water."</h3>
+          <p>Submerged hoses are one of the most common residential cross-connection risks. A hose left in a pool, a bucket of chemicals, or a tub of dirty water can pull contaminants back into the line during a pressure drop.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="section section-card section-card--deep has-bg">
+    <div class="container reveal">
+      <div class="cta-strip__inner">
+        <span class="eyebrow eyebrow--centered">Test Due?</span>
+        <h2>Schedule Your Backflow Test.</h2>
+        <p class="cta-strip__lede">Residential or commercial. Same-week scheduling. Reports filed.</p>
+        <div class="cta-strip__actions">
+          <a href="tel:5127457715" class="btn btn--primary">Call (512) 745-7715</a>
+          <a href="book.html" class="btn btn--ghost">Schedule Online</a>
+        </div>
+        <div class="cta-trust">
+          <div class="cta-trust__item">
+            <div class="cta-trust__value">TCEQ</div>
+            <div class="cta-trust__label">Licensed Testers</div>
+          </div>
+          <div class="cta-trust__item">
+            <div class="cta-trust__value">1 Day</div>
+            <div class="cta-trust__label">Response Time</div>
+          </div>
+          <div class="cta-trust__item">
+            <div class="cta-trust__value">Filed</div>
+            <div class="cta-trust__label">Reports Submitted For You</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">
+          <img src="assets/logo.jpg" alt="ATX BackFlow logo">
+          <span class="footer__brand-text">ATX <em>BackFlow</em></span>
+        </div>
+        <p class="footer__tagline">Certified backflow testing, repair, and rebuilds across the greater Austin area. Residential and commercial. Reports filed.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <ul class="footer__list">
+          <li><a href="tel:5127457715">(512) 745-7715</a></li>
+          <li><a href="mailto:atxbackflow@gmail.com">atxbackflow@gmail.com</a></li>
+          <li><span>1801 Red Bud Ln, B293</span></li>
+          <li><span>Round Rock, TX 78664</span></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul class="footer__list">
+          <li><a href="services.html">Annual Testing</a></li>
+          <li><a href="services.html">Repair</a></li>
+          <li><a href="services.html">Rebuild</a></li>
+          <li><a href="services.html">Partner Coordination</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Navigate</h4>
+        <ul class="footer__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="our-work.html">Our Work</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="book.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__credits">
+        &copy; <span data-year>2026</span> ATX BackFlow. Site by <a href="https://otm-designs.com" target="_blank" rel="noopener">OTM Web Design</a>.
+      </div>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/atxbackflow/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.facebook.com/ATXbackflow" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.2c0-.9.3-1.5 1.5-1.5h1.5V5c-.3 0-1.1-.1-2.1-.1-2.1 0-3.5 1.3-3.5 3.6V11H8v3h2.9v7h2.6z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
