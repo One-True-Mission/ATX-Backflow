@@ -1521,8 +1521,15 @@ body.lightbox-open { overflow: hidden; }
 }
 
 .footer__credits { color: var(--color-text-on-dark-muted); }
-.footer__credits a { color: var(--color-text-on-dark); border-bottom: 1px solid rgba(236, 228, 216, 0.15); }
-.footer__credits a:hover { color: var(--accent-bright); border-color: var(--accent-bright); }
+.footer__credits a {
+  color: var(--accent);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(29, 138, 203, 0.4);
+}
+.footer__credits a:hover {
+  color: var(--accent-bright);
+  border-color: var(--accent-bright);
+}
 
 .footer__social { display: flex; gap: 10px; }
 
