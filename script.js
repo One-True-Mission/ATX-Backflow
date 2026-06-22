@@ -5,6 +5,8 @@
    - Scroll reveal
    - Year stamp
    - Smooth scroll
+   - Lightbox
+   - Formspree AJAX submit (booking form -> own thank-you page)
 */
 
 /* ============================================
@@ -225,6 +227,66 @@
       if (e.key === 'Escape') close();
       else if (e.key === 'ArrowLeft') show(index - 1);
       else if (e.key === 'ArrowRight') show(index + 1);
+    });
+  });
+})();
+
+/* ============================================
+   FORMSPREE AJAX SUBMIT
+   Submits the booking form in the background via fetch so
+   the visitor is sent to OUR own thank-you page instead of
+   Formspree's generic confirmation screen. The form's
+   data-redirect attribute holds the destination. If JS is
+   unavailable, the form falls back to a normal POST and the
+   hidden _next field (absolute URL) handles the redirect.
+   ============================================ */
+(function () {
+  'use strict';
+  document.addEventListener('DOMContentLoaded', function () {
+    var form = document.querySelector('form[action*="formspree.io"]');
+    if (!form) return;
+
+    var redirect = form.getAttribute('data-redirect') || 'thank-you.html';
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var submitBtn = form.querySelector('[type="submit"]');
+      var originalLabel = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
+      function restoreButton() {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+        }
+      }
+
+      function fail(data) {
+        restoreButton();
+        var msg = 'Something went wrong sending your request. Please call us at (512) 745-7715 or try again.';
+        if (data && data.errors && data.errors.length) {
+          msg = data.errors.map(function (er) { return er.message; }).join(', ');
+        }
+        window.alert(msg);
+      }
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          window.location.href = redirect;
+        } else {
+          response.json().then(fail).catch(function () { fail(null); });
+        }
+      }).catch(function () {
+        fail(null);
+      });
     });
   });
 })();
