@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" as="image" href="assets/hero-our-work.jpg" fetchpriority="high">
   <title>Our Work | ATX BackFlow</title>
   <meta name="description" content="Photo gallery of ATX BackFlow's recent work across the greater Austin area. The team on the job, and a closer look at the assemblies, installs, and rebuilds we handle.">
 
@@ -25,7 +26,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="assets/logo.jpg">
@@ -177,7 +179,7 @@
     <div class="footer__grid">
       <div>
         <div class="footer__brand">
-          <img src="assets/logo.jpg" alt="ATX BackFlow logo">
+          <img src="assets/logo.jpg" alt="ATX BackFlow logo" loading="lazy">
           <span class="footer__brand-text">ATX <em>BackFlow</em></span>
         </div>
         <p class="footer__tagline">Certified backflow testing, repair, and rebuilds across the greater Austin area. Residential and commercial. Reports filed.</p>

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" as="image" href="assets/hero-home.jpg" fetchpriority="high">
   <title>ATX BackFlow | Certified Backflow Testing in Greater Austin</title>
   <meta name="description" content="ATX BackFlow is a certified backflow testing, repair, and rebuild company serving Austin, Round Rock, Georgetown, Cedar Park, and Hutto. Residential and commercial systems from 1/2 inch to 12 inch.">
 
@@ -25,7 +26,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="assets/logo.jpg">
@@ -104,7 +106,7 @@
       <div class="intro-grid">
         <div class="intro-grid__media">
           <span class="intro-grid__badge">Since 2022</span>
-          <img src="assets/home-intro.jpg" alt="Rebuilt backflow assembly internals">
+          <img src="assets/home-intro.jpg" alt="Rebuilt backflow assembly internals" loading="lazy">
         </div>
         <div>
           <span class="eyebrow">Who We Are</span>
@@ -228,7 +230,7 @@
     <div class="footer__grid">
       <div>
         <div class="footer__brand">
-          <img src="assets/logo.jpg" alt="ATX BackFlow logo">
+          <img src="assets/logo.jpg" alt="ATX BackFlow logo" loading="lazy">
           <span class="footer__brand-text">ATX <em>BackFlow</em></span>
         </div>
         <p class="footer__tagline">Certified backflow testing, repair, and rebuilds across the greater Austin area. Residential and commercial. Reports filed.</p>
